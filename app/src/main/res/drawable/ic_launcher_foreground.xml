@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Left Soundwaves / Echoes -->
+    <path
+        android:pathData="M28,42 C24,48 24,60 28,66"
+        android:strokeWidth="3.5"
+        android:strokeColor="#00f3ff"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M21,36 C15,46 15,62 21,72"
+        android:strokeWidth="3.5"
+        android:strokeColor="#8000f3ff"
+        android:strokeLineCap="round" />
+
+    <!-- Right Soundwaves / Echoes -->
+    <path
+        android:pathData="M80,42 C84,48 84,60 80,66"
+        android:strokeWidth="3.5"
+        android:strokeColor="#ff0055"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M87,36 C93,46 93,62 87,72"
+        android:strokeWidth="3.5"
+        android:strokeColor="#80ff0055"
+        android:strokeLineCap="round" />
+
+    <!-- Dynamic Runner Figure -->
+    <!-- Head & Visor -->
+    <path
+        android:pathData="M54,27 m-8,0 a8,8 0 1,0 16,0 a8,8 0 1,0 -16,0"
+        android:fillColor="#ffffff" />
+    <!-- Glowing Cyan Cyber Visor -->
+    <path
+        android:pathData="M48,25 L60,25 C61,25 62,26 62,27 L62,29 C62,30 61,31 60,31 L48,31 C47,31 46,30 46,29 L46,27 C46,26 47,25 48,25 Z"
+        android:fillColor="#00f3ff" />
+
+    <!-- Torso (Electric Magenta) -->
+    <path
+        android:pathData="M47,37 L61,37 L58,58 L50,58 Z"
+        android:fillColor="#ff0055" />
+
+    <!-- Arms in Motion -->
+    <!-- Forward Arm -->
+    <path
+        android:pathData="M60,39 L71,48 L76,44"
+        android:strokeWidth="4"
+        android:strokeColor="#00f3ff"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <!-- Back Arm -->
+    <path
+        android:pathData="M48,39 L37,47 L34,55"
+        android:strokeWidth="4"
+        android:strokeColor="#ffffff"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- Running Legs -->
+    <!-- Leading Leg -->
+    <path
+        android:pathData="M56,58 L66,68 L61,81"
+        android:strokeWidth="4.5"
+        android:strokeColor="#00f3ff"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <!-- Trailing Leg -->
+    <path
+        android:pathData="M52,58 L42,67 L34,74"
+        android:strokeWidth="4.5"
+        android:strokeColor="#ff0055"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- Ground Neon Spark Speed Trail -->
+    <path
+        android:pathData="M30,83 L78,83"
+        android:strokeWidth="2.5"
+        android:strokeColor="#fbbf24"
+        android:strokeLineCap="round" />
+</vector>

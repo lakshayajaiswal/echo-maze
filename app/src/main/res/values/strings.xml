@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">EchoRunner</string>
+    <string name="title_game">EchoRunner</string>
+    <string name="subtitle_game">Voice &amp; Shake Pause/Resume Accessible Escape</string>
+    <string name="btn_pause">Pause</string>
+    <string name="btn_resume">Resume</string>
+    <string name="btn_pitch">Pitch</string>
+    <string name="btn_blindfold">Blindfold</string>
+    <string name="btn_spectator">Spectator</string>
+    <string name="btn_calibrate">Calibrate</string>
+    <string name="btn_restart">Restart</string>
+    <string name="paused_title">GAME PAUSED</string>
+    <string name="paused_instructions">Say "RESUME" or "START" or SHAKE your phone to continue running!</string>
+</resources>
