@@ -60,7 +60,8 @@ data class GameUIState(
     val settings: GameSettings = GameSettings(),
     val isVoiceListening: Boolean = false,
     val isShakeActive: Boolean = true,
-    val isTiltActive: Boolean = false
+    val isTiltActive: Boolean = false,
+    val lastVoiceTranscript: String = ""
 )
 
 class GameViewModel(application: Application) : AndroidViewModel(application) {
@@ -110,10 +111,16 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
             onPitchBack = { triggerJump() }
         )
 
-        // Setup Voice Command Manager
-        voiceCommandManager = VoiceCommandManager(application) { command ->
-            handleVoiceCommand(command)
-        }
+        // Setup Voice Command Manager with accessible transcript feedback
+        voiceCommandManager = VoiceCommandManager(
+            context = application,
+            onCommandReceived = { command ->
+                handleVoiceCommand(command)
+            },
+            onTranscriptUpdated = { transcript ->
+                _uiState.update { it.copy(lastVoiceTranscript = transcript) }
+            }
+        )
 
         // Update audio volume from settings
         audioEngine.setVolume(_uiState.value.settings.masterVolume)
@@ -160,6 +167,10 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         _uiState.update { it.copy(isPaused = true) }
         audioEngine.playPauseTone()
         hapticController.pause()
+        if (_uiState.value.settings.voiceCommandsEnabled) {
+            voiceCommandManager.startListening()
+            _uiState.update { it.copy(isVoiceListening = true) }
+        }
         speakVoice("Game Paused, ${_uiState.value.playerName}! Say RESUME or shake phone to continue!", priority = true)
     }
 
@@ -168,6 +179,10 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         _uiState.update { it.copy(isPaused = false) }
         audioEngine.playResumeTone()
         hapticController.pause()
+        if (_uiState.value.settings.voiceCommandsEnabled) {
+            voiceCommandManager.startListening()
+            _uiState.update { it.copy(isVoiceListening = true) }
+        }
         speakVoice("Resuming run, ${_uiState.value.playerName}! Run!", priority = true)
     }
 
@@ -177,6 +192,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun handleVoiceCommand(command: String) {
+        _uiState.update { it.copy(voiceBanner = "🗣️ Voice Command: \"$command\"") }
         when (command) {
             "PAUSE" -> pauseGame()
             "RESUME" -> resumeGame()

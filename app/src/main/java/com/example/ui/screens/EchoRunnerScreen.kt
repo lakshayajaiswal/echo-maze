@@ -208,6 +208,8 @@ fun EchoRunnerScreen(
                 exit = fadeOut()
             ) {
                 PauseOverlay(
+                    isVoiceListening = state.isVoiceListening,
+                    lastVoiceTranscript = state.lastVoiceTranscript,
                     onResume = { viewModel.resumeGame() }
                 )
             }
